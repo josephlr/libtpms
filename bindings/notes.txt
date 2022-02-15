@@ -44,5 +44,43 @@ Only the following symbols were undefined:
 
 Now we define the "core" library which handles the above endpoints (except for marshaling):
 
+At commit 27f0e09, the following are undefined
 
+  `ExecuteCommand'
 
+  `_plat__IsCanceled'
+  `_plat__GetEntropy'
+  `_plat__WasPowerLost'
+  `_plat__TimerWasReset'
+  `_plat__LocalityGet'
+  `_plat__PhysicalPresenceAsserted'
+  `_plat__GetUnique'
+
+  (why is this here if __ACT_DISABLED is defined?)
+  `_plat__ACT_Initialize'
+  `_plat__ACT_EnableTicks'
+  `_plat__ACT_GetImplemented'
+
+  `_plat__IsNvAvailable'
+  `_plat__NvCommit'
+  `_plat__NVEnable'
+  `_plat__NvIsDifferent'
+  `_plat__NvMemoryRead'
+  `_plat__NvMemoryWrite'
+  `_plat__NvMemoryClear'
+  `_plat__NvMemoryMove'
+
+  `_plat__TimerRead'
+  `_plat__TimerWasStopped'
+  `_plat__ClockAdjustRate'
+
+  `TPM2_GetBufferSize'
+  `TPMLIB_LogPrintfA'
+
+  `ANY_OBJECT_Unmarshal'
+  `VolatileLoad'
+  `NVShadowRestore'
+
+The next command includes all the files except those for particular commands:
+
+Now we add the defs for the specific commands:
