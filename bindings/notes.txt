@@ -1,0 +1,48 @@
+After including the following files in bindings/platform:
+  - src/tpm2/Cancel.c
+  - src/tpm2/Clock.c
+  - src/tpm2/LibtpmsCallbacks.c
+  - src/tpm2/LocalityPlat.c
+  - src/tpm2/NVMem.c
+  - src/tpm2/PlatformACT.c
+  - src/tpm2/PlatformData.c
+  - src/tpm2/PowerPlat.c
+  - src/tpm2/StateMarshal.c
+  - src/tpm2/TPMCmdp.c
+  - src/tpm2/Volatile.c
+  - src/disabled_interface.c
+  - src/tpm_library.c
+  - src/tpm_memory.c
+  - src/tpm_nvfile.c
+  - src/tpm_tpm2_interface.c
+  - src/tpm_tpm2_tis.c
+
+
+Only the following symbols were undefined:
+  `_TPM_Init'
+  `_plat__RunCommand'
+
+  `_TPM_Hash_Start'
+  `_TPM_Hash_Data'
+  `_TPM_Hash_End'
+
+  `TPM_Manufacture'
+  `TPM_TearDown'
+
+  `CryptHashBlock'
+  `ExpDCacheFree'
+
+  `Array_Unmarshal'
+  `Array_Marshal'
+  `VolatileState_Unmarshal'
+  `VolatileState_Marshal'
+  `PERSISTENT_ALL_Unmarshal'
+  `PERSISTENT_ALL_Marshal'
+
+  `g_inFailureMode'
+
+
+Now we define the "core" library which handles the above endpoints (except for marshaling):
+
+
+

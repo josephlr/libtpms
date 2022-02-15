@@ -159,7 +159,7 @@ static TPM_RESULT TPM2_MainInit(void)
     }
 
     if (ret == TPM_SUCCESS && has_cached_state) {
-        NvCommit();
+        _plat__NvCommit();
     }
 
     return ret;
