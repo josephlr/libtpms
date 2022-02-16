@@ -19,6 +19,7 @@ package core
 //
 // #include "Tpm.h"
 // #include "_TPM_Init_fp.h"
+// #include "Volatile.h"
 import "C"
 
 func Check() bool {
@@ -32,10 +33,19 @@ func Check() bool {
 	C.TPM_Manufacture()
 	C.TPM_TearDown()
 
-	// C.VolatileState_Marshal()
-	// C.VolatileState_Unmarshal()
-	// C.PERSISTENT_ALL_Marshal()
-	// C.PERSISTENT_ALL_Unmarshal()
-
+	C.VolatileState_Load()
+	C.VolatileState_Save()
+	C.PERSISTENT_ALL_Unmarshal()
+	C.PERSISTENT_ALL_Marshal()
 	return C.g_inFailureMode
 }
+
+// _plat__IsCanceled is used in the following locations:
+//  - TestEccSignAndVerify() as CHECK_CANCELED
+//    - Called via TPM2_SelfTest and TPM2_IncrementalSelfTest
+//  - CryptRsaGenerateKey() when generating/checking RSA primes
+//  - CryptEccCommitCompute() as it involves many ECC multiplications
+// For now, just don't support Cancellation
+// func _plat__IsCanceled() C.int {
+// 	return 0
+// }

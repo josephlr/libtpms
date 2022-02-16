@@ -86,7 +86,7 @@ The next commit (1260b95) includes all the files except those for particular com
 
 Now we add the source files for the specific commands
 
-After commit () we now have the following symbols undefined
+After commit (7a96926) we now have the following symbols undefined
 
  - `_plat__ACT_Initialize'
  - `_plat__ACT_EnableTicks'
@@ -121,3 +121,52 @@ After commit () we now have the following symbols undefined
  - `ANY_OBJECT_Unmarshal'
  - `VolatileLoad'
  - `NVShadowRestore'
+
+Then we add the Marshal/Unmarshal code (commit cf5e6db) and we now have:
+
+`_plat__ACT_EnableTicks'
+`_plat__ACT_GetImplemented'
+`_plat__ACT_Initialize'
+
+`_plat__IsCanceled'
+`_plat__GetEntropy'
+`_plat__WasPowerLost'
+`_plat__LocalityGet'
+`_plat__PhysicalPresenceAsserted'
+`_plat__GetUnique'
+
+`_plat__IsNvAvailable'
+`_plat__NVEnable'
+`_plat__NvCommit'
+`_plat__NvIsDifferent'
+
+`_plat__NvMemoryClear'
+`_plat__NvMemoryMove'
+`_plat__NvMemoryRead'
+`_plat__NvMemoryWrite'
+
+`_plat__TimerRead'
+`_plat__TimerWasReset'
+`_plat__TimerWasStopped'
+`_plat__ClockAdjustRate'
+
+`TPM2_GetBufferSize'
+`TPMLIB_LogPrintfA'
+
+`_rpc__Signal_GetTPMEstablished'
+`_rpc__Signal_ResetTPMEstablished'
+`_rpc__Signal_SetTPMEstablished'
+
+`ClockAdjustPostResume'
+`ClockGetTime'
+`VolatileLoad'
+
+`s_adjustRate'
+`s_hostMonotonicAdjustTime'
+`s_lastReportedTime'
+`s_lastSystemTime'
+`s_realTimePrevious'
+`s_suspendedElapsedTime'
+`s_timerReset'
+`s_timerStopped'
+`s_tpmTime'
